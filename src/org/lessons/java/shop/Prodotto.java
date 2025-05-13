@@ -30,7 +30,6 @@ public class Prodotto {
         this.iva = iva; // .22
     }
 
-
     public String getNome(){
         return this.nome;
     }
@@ -52,12 +51,16 @@ public class Prodotto {
     }
 
     public String getNomeEsteso(){
-        // return this.codice + "-" + this.nome;
-        return String.format("%s-%s", this.codice, this.trasformaInTrattinato(this.nome));
+        return this.toString();
     }
 
     public String trasformaInTrattinato(String frase){
         Stringhe stringheUtility = new Stringhe();
         return stringheUtility.sostituisciTutteLeOccorrenze(frase, ' ', '-');
+    }
+
+    @Override
+    public String toString(){
+        return String.format("%s-%s", this.codice, this.trasformaInTrattinato(this.nome));
     }
 }
